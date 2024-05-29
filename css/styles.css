@@ -1,0 +1,113 @@
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+.contenedor-side-news {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+/* Noticia Destacada */
+.imagen-destacada img {
+    background-color: #f8f9fa; /* Color de fondo claro */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    max-height: auto;
+    object-fit: fill;
+}
+
+/** Noticias Laterales */
+.row .no-gutters {
+    height: 100px;
+}
+
+.card {
+    border: 1px solid rgba(0, 0, 0, .125);
+    
+}
+
+.card-img {
+    height: 100%;
+    object-fit: cover;
+    padding: 0;
+}
+
+.card-custom {
+    
+    
+}
+.card-custom .row {
+    height: 100%;
+}
+
+.card-text p {
+    padding: 0 0 0 0;
+}
+
+.card-custom .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.mt-custom {
+    margin-top: 2rem; /* Ajusta el valor según necesidades */
+}
+
+/** Navegación */
+/* Navegación Sencilla */
+.nav-container {
+    position: relative;
+    right: 30px;
+}
+.nav-tabs .nav-link.active {
+    color: #fff;
+    background-color: #2d71a1
+}
+
+.nav a {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    color: #2d71a1;
+}
+
+.nav-item:hover a{
+    color: #fff;
+    background-color: #2d71a1;
+}
+
+
+/* Navegación Gradient 
+.nav-tabs {
+    border-radius: 6px;
+    background: linear-gradient(-45deg, #1391a5, #274685);
+    border-bottom: none;
+
+}
+
+.nav-item:hover {
+    background-color: #1391a5;
+}
+
+.nav a{
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    color: #ffff;
+}
+*/
+
+/* Paginacion */
+.page-link {
+    border: 1px solid #ccc;
+}
+
+.pagination .page-link{
+    color: #274685;
+    
+}
+
+.page-item.active .page-link {
+    background-color: #274685;
+    border-color: #274685;
+}

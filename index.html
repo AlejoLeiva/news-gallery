@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+    <title>Portafolio Noticias BS</title>
+  </head>
+
+  <body>
+    <!--noticia-destacada-->
+    <div class="container-md mt-5 p-4">
+      <div class="nav-container">
+        <ul class="nav nav-tabs d-flex justify-content-start">
+          <li class="nav-item">
+            <a class="nav-link active" onclick="activeLink()" value="1" href="#"
+              >Todo</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" value="2" onclick="activeLink()" href="#"
+              >Comunicados</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" value="3" onclick="activeLink()" href="#"
+              >Avisos</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" value="4" onclick="activeLink()" href="#"
+              >Eventos</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" value="5" onclick="activeLink()" href="#"
+              >Videos</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <div class="row">
+          <div class="col-lg-4 mt-1 p-0 mb-3">
+            <div class="imagen-destacada">
+              <img class="imagen-destacada" src="/img/portfolio-1.jpg" alt="" />
+            </div>
+          </div>
+          <!--noticias laterales-->
+          <!--columna 1-->
+          <div class="col-lg-8 mt-1">
+              <div class="row" id="news-container">
+                <div class="columna col-12 col-md-6 mb-3">
+                  <!--Contenido dinámico JS-->
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              
+              <nav aria-label="..." id="pagination-container">
+                <ul class="pagination justify-content-end">
+                  <li class="page-item">
+                    <a class="page-link" href="#" id="previous-page">Anterior</a>
+                  </li>
+                    <!--Paginación dinamica JS-->
+                  <li class="page-item">
+                    <a class="page-link" href="#" id="next-page">Siguiente</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <!--.row-->
+    </div>
+    <!--.container-->
+    <script src="/js/app.js"></script>
+  </body>
+</html>
