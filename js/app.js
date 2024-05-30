@@ -14,25 +14,25 @@ function activeLink() {
 
 /* Elementos Dinamicos */
 const data = [
-    { title: 'Musico', text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', img: '/img/portfolio-2.jpg' },
-    { title: 'Convenios', text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', img: '/img/portfolio-3.jpg' },
-    { title: 'Título 1', text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', img: '/img/portfolio-4.jpg' },
-    { title: 'Título 2', text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', img: '/img/portfolio-5.jpg' },
-    { title: 'Musico31', text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', img: '/img/portfolio-6.jpg' },
-    { title: 'Convenios544', text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', img: '/img/portfolio-7.jpg' },
-    { title: 'Título 142', text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', img: '/img/portfolio-8.jpg' },
-    { title: 'Título 63', text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', img: '/img/portfolio-9.jpg' },
-    { title: 'Musico78', text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', img: '/img/portfolio-10.jpg' },
-    { title: 'Convenios6', text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', img: '/img/portfolio-12.jpg' },
-    { title: 'Título 12', text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', img: '/img/portfolio-14.jpg' },
-    { title: 'Título 23', text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', img: '/img/portfolio-6.jpg' }
-    
+    { title: 'Musico', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-2.jpg' },
+    { title: 'Convenios', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-4.jpg' },
+    { title: 'Título 1', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-3.jpg' },
+    { title: 'Título 2', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-5.jpg' },
+    { title: 'Musico31', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-10.jpg' },
+    { title: 'Convenios544', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-7.jpg' },
+    { title: 'Título 142', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-8.jpg' },
+    { title: 'Título 63', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-9.jpg' },
+    { title: 'Musico78', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-10.jpg' },
+    { title: 'Convenios6', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-7.jpg' },
+    { title: 'Título 12', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-14.jpg' },
+    { title: 'Título 23', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-6.jpg' }
 
 ];
 
 const itemsPorPagina = 4;
 let currentPage = 1;
 
+/*  */
 function renderNews(page) {
   const startIndex = (page - 1) * itemsPorPagina;
   const endIndex = startIndex + itemsPorPagina;
@@ -52,7 +52,7 @@ function renderNews(page) {
             <div class="col-8">
               <div class="card-body">
                 <h5 class="card-title">${news.title}</h5>
-                <p class="card-text">${news.text}</p>
+                <p class="card-text pr-10">${news.text}</p>
               </div>
             </div>
           </div>
@@ -103,3 +103,6 @@ function changePage(page) {
 
 // Inicializa la paginación
 renderNews(currentPage);
+
+/* Carousel */
+const carousel = new bootstrap.Carousel('#myCarousel')
