@@ -9,10 +9,21 @@ body {
 }
 
 /* Carousel */
+
+@media (max-width: 768px) {
+    #carouselAutoplaying {
+    
+        max-width: 800px; /* Ajusta el ancho del carrusel */
+        margin: auto; /* Centra el carrusel horizontalmente */
+      }
+}
+
 #carouselAutoplaying {
+    
     max-width: 400px; /* Ajusta el ancho del carrusel */
     margin: auto; /* Centra el carrusel horizontalmente */
   }
+
   
   #carouselAutoplaying .carousel-inner {
     max-height: 320px; /* Ajusta la altura del carrusel */
@@ -22,6 +33,8 @@ body {
     min-height: 100%; /* Asegura que las imágenes llenen el contenedor */
     object-fit: cover; /* Mantén la proporción de las imágenes y recorta si es necesario */
   }
+
+
   
 
 /** Noticias Laterales */
@@ -35,7 +48,7 @@ body {
 }
 
 .card-img {
-    max-height: 100%;
+    min-height: 100%;
     object-fit: cover;
     padding: 0;
 }
@@ -69,18 +82,18 @@ body {
 }
 .nav-tabs .nav-link.active {
     color: #fff;
-    background-color: #2d71a1
+    background-color: #274685
 }
 
 .nav a {
     font-family: "Roboto", sans-serif;
     font-weight: 400;
-    color: #2d71a1;
+    color: #274685;
 }
 
 .nav-item:hover a{
     color: #fff;
-    background-color: #2d71a1;
+    background-color: #274685;
 }
 
 
@@ -117,12 +130,28 @@ body {
     
 }
 
+.pagination #previous-page:hover{
+    background-color: #274685;
+    color: #fff;
+}
+
+.pagination #next-page:hover{
+    background-color: #274685;
+    color: #fff;
+}
+
+
 .page-item.active .page-link {
     background-color: #274685;
     border-color: #274685;
     color: #fff;
 }
 
+
+
 .page-item.disabled .page-link {
     color: #ccc;
 }
+
+
+

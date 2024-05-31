@@ -1,38 +1,26 @@
-/** Tabs */
-let link = document.getElementsByClassName('nav-link');
-let valorActual = 1;
-
-function activeLink() {
-    for(l of link) {
-        l.classList.remove('active');
-    }
-        event.target.classList.add('active');
-        valorActual = e.target.value;
-}
-
 /** Paginacion */
 
 /* Elementos Dinamicos */
 const data = [
-    { title: 'Musico', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-2.jpg' },
-    { title: 'Convenios', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-4.jpg' },
-    { title: 'Título 1', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-3.jpg' },
-    { title: 'Título 2', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-5.jpg' },
-    { title: 'Musico31', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-10.jpg' },
-    { title: 'Convenios544', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-7.jpg' },
-    { title: 'Título 142', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-8.jpg' },
-    { title: 'Título 63', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-9.jpg' },
-    { title: 'Musico78', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-10.jpg' },
-    { title: 'Convenios6', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-7.jpg' },
-    { title: 'Título 12', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-14.jpg' },
-    { title: 'Título 23', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-6.jpg' }
+    { title: 'Musico', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-2.jpg'},
+    { title: 'Convenios', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-3.jpg'},
+    { title: 'Independencia', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-4.jpg'},
+    { title: 'Comunicados', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-5.jpg'},
+    { title: 'Musico2', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-10.jpg'},
+    { title: 'Comunicados 2', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-7.jpg'},
+    { title: 'Convenios', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-1.jpg'},
+    { title: 'Comunicados 3', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-9.jpg'},
+    { title: 'Comunicados 4', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-8.jpg'},
+    { title: 'Convenios', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-11.jpg'},
+    { title: 'Convenios3', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-14.jpg'},
+    { title: 'Comunicados 5', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-6.jpg'}
 
 ];
 
 const itemsPorPagina = 4;
 let currentPage = 1;
 
-/*  */
+/* Renderizar Noticias Dinamicamente */
 function renderNews(page) {
   const startIndex = (page - 1) * itemsPorPagina;
   const endIndex = startIndex + itemsPorPagina;
@@ -66,6 +54,7 @@ function renderNews(page) {
   renderPagination();
 }
 
+/* Renderizar numeros de pagina */
 function renderPagination() {
   const pageCount = Math.ceil(data.length / itemsPorPagina);
   const paginationContainer = document.querySelector(".pagination");
@@ -104,5 +93,52 @@ function changePage(page) {
 // Inicializa la paginación
 renderNews(currentPage);
 
-/* Carousel */
-const carousel = new bootstrap.Carousel('#myCarousel')
+/* Carousel Dinamico */
+function renderCarousel() {
+  const carouselContainer = document.getElementById("carouselAutoplaying");
+  carouselContainer.innerHTML = "";
+  carouselToDisplay.forEach(carousel => {
+      const carouselHTML = `
+      <div id="carouselAutoplaying" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="img/portfolio-2.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="img/portfolio-4.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="img/portfolio-12.jpg" class="d-block w-100" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselAutoplaying" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselAutoplaying" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+      `
+      carouselContainer.innerHTML += carouselHTML;
+  });
+}
+
+/* Navegación */
+/* Actualizar la pestaña activa y el filtro */
+function activeLink(event) {
+  for (let l of link) {
+    l.classList.remove('active');
+  }
+  event.target.classList.add('active');
+  currentFilter = event.target.getAttribute("value");
+  currentPage = 1; // Resetear a la primera página al cambiar de filtro
+  renderNews(currentPage);
+}
+
+/* Añadir evento a los enlaces de las pestañas */
+let link = document.getElementsByClassName('nav-link');
+for (let l of link) {
+  l.addEventListener('click', activeLink);
+}
