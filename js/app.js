@@ -23,19 +23,20 @@ let currentFilter = 'all';
 /** Paginacion */
 /* Elementos Dinamicos */
 const data = [
-  { title: 'Musico', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-2.jpg', category: 'Avisos' },
-  { title: 'Convenios', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-3.jpg', category: 'Eventos' },
-  { title: 'Independencia', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-4.jpg', category: 'Avisos' },
-  { title: 'Comunicados', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-5.jpg', category: 'Comunicados' },
-  { title: 'Musico2', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-10.jpg', category: 'Avisos' },
-  { title: 'Comunicados 2', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-7.jpg', category: 'Comunicados' },
-  { title: 'Convenios', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-1.jpg', category: 'Eventos' },
-  { title: 'Comunicados 3', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-9.jpg', category: 'Comunicados' },
-  { title: 'Comunicados 4', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-8.jpg', category: 'Comunicados' },
-  { title: 'Convenios', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-11.jpg', category: 'Eventos' },
-  { title: 'Convenios3', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-14.jpg', category: 'Eventos' },
-  { title: 'Convenios4', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-13.png', category: 'Eventos' },
-  { title: 'Comunicados 5', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-6.jpg', category: 'Comunicados' }
+  { title: 'Musico', text: 'Lorem ipsum dolor sit amet consectetur elit.', lgtext:'',   img: '/img/portfolio-2.jpg', category: 'Avisos' },
+  { title: 'Convenios', text: 'Lorem ipsum dolor sit amet consectetur elit.', lgtext:'',  img: '/img/portfolio-3.jpg', category: 'Eventos' },
+  { title: 'Independencia', text: 'Lorem ipsum dolor sit amet consectetur elit.', lgtext:'',  img: '/img/portfolio-4.jpg', category: 'Avisos' },
+  { title: 'Comunicados', text: 'Lorem ipsum dolor sit amet consectetur elit.', lgtext:'',  img: '/img/portfolio-5.jpg', category: 'Comunicados' },
+  { title: 'Musico2', text: 'Lorem ipsum dolor sit amet consectetur elit.', lgtext:'',  img: '/img/portfolio-10.jpg', category: 'Avisos' },
+  { title: 'Comunicados 2', text: 'Lorem ipsum dolor sit amet consectetur elit.', lgtext:'',  img: '/img/portfolio-7.jpg', category: 'Comunicados' },
+  { title: 'Convenios', text: 'Lorem ipsum dolor sit amet consectetur elit.', lgtext:'',  img: '/img/portfolio-1.jpg', category: 'Eventos' },
+  { title: 'Comunicados 3', text: 'Lorem ipsum dolor sit amet consectetur elit.', lgtext:'',  img: '/img/portfolio-9.jpg', category: 'Comunicados' },
+  { title: 'Comunicados 4', text: 'Lorem ipsum dolor sit amet consectetur elit.', lgtext:'',  img: '/img/portfolio-8.jpg', category: 'Comunicados' },
+  { title: 'Convenios', text: 'Lorem ipsum dolor sit amet consectetur elit.', lgtext:'',  img: '/img/portfolio-11.jpg', category: 'Eventos' },
+  { title: 'Convenios3', text: 'Lorem ipsum dolor sit amet consectetur elit.', lgtext:'',  img: '/img/portfolio-14.jpg', category: 'Eventos' },
+  { title: 'Convenios4', text: 'Lorem ipsum dolor sit amet consectetur elit.', lgtext:'',  img: '/img/portfolio-13.png', category: 'Eventos' },
+  { title: 'Convenios4', text: 'Lorem ipsum dolor sit amet consectetur elit.', lgtext:'',  img: '/img/registrousuario.mp4', category: 'Videos' },
+  { title: 'Comunicados 5', text: 'Lorem ipsum dolor sit amet consectetur elit.', lgtext:'',  img: '/img/portfolio-6.jpg', category: 'Comunicados' }
 ];
 
 
@@ -58,7 +59,7 @@ function renderNews(page) {
   newsToDisplay.forEach(news => {
     const newsHTML = `
         <div class="col-12 col-md-6 mb-3">
-            <div class="card card-custom">
+           <div class="card card-custom" data-bs-toggle="modal" data-bs-target="#newsModal" onclick="openModal('${news.title}', '${news.img}', '${news.lgtext}')">
               <div class="row no-gutters">
                 <div class="col-4">
                   <img src="${news.img}" class="card-img" alt="Imagen" />
@@ -73,7 +74,8 @@ function renderNews(page) {
             </div>
           </div>
       `;
-    newsContainer.innerHTML += newsHTML;
+
+      newsContainer.innerHTML += newsHTML;
   });
 
   renderPagination(filteredData.length);
@@ -122,51 +124,12 @@ function changePage(page) {
 // Inicializa la paginación
 renderNews(currentPage);
 
-/* Carousel Dinamico */
-function renderCarousel() {
-  const carouselContainer = document.getElementById("carouselAutoplaying");
-  carouselContainer.innerHTML = "";
-  carouselToDisplay.forEach(carousel => {
-    const carouselHTML = `
-      <div id="carouselAutoplaying" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="img/portfolio-2.jpg" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="img/portfolio-4.jpg" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="img/portfolio-12.jpg" class="d-block w-100" alt="...">
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselAutoplaying" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselAutoplaying" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-      `
-    carouselContainer.innerHTML += carouselHTML;
-  });
+
+/* Modal */
+function openModal(title, img, text) {
+  // Llenar los datos del modal con la información de la noticia seleccionada
+  document.getElementById('newsModalLabel').textContent = title;
+  document.getElementById('newsModalImage').src = img;
+  document.getElementById('newsModalText').textContent = text;
+
 }
-
-
-const openPopup = document.querySelector('.openPopup');
-const popup = document.querySelector('.popup')
-const closePopup = document.querySelector('.close-popup');
-openPopup.addEventListener('click', (e) => {
-  e.preventDefault();
-  popup.classList.add('popup--show');
-});
-
-closePopup.addEventListener('click', (e) => {
-  e.preventDefault();
-  popup.classList.remove('popup--show');
-});
-
-
-

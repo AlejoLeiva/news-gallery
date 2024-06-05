@@ -29,6 +29,7 @@ body {
   #carouselAutoplaying .carousel-item img {
     min-height: 100%; /* Asegura que las imágenes llenen el contenedor */
     object-fit: cover; /* Mantén la proporción de las imágenes y recorta si es necesario */
+    border-radius: 5px;
   }
 
 
@@ -89,92 +90,6 @@ body {
 }
 .mt-custom {
     margin-top: 2rem; /* Ajusta el valor según necesidades */
-}
-
-/* Popup */
-.popup{  
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: rgba(0,0,0,0.4);
-    display: flex;
-    opacity: 0;
-    pointer-events: none;
-}
-
-
-.popup--show {
-    opacity: 1;
-    pointer-events: unset;
-}
-
-
-.popup-container {
-
-    margin: 5rem auto;
-    width: 90%;
-    max-width: 800px;
-    height: 500px;
-    max-height: 90%;
-    background-color: #fff;
-    border-radius: 6px;
-    
-    display: flex;
-}
-
-
-.popup-img {
-    width: 40%;
-    border-radius: 6px;
-    background-image: url(../img/portfolio-6.jpg);
-    background-size: cover;
-    background-position: center;
-}
-
-.popup-text {
-    width: 60%;
-    padding: 20px;
-    overflow-y: auto;
-}
-
-.popup-title {
-    font-size: 30px;
-    text-align: left;
-    margin-left: 1rem;
-}
-
-.popup-text p{
-    line-height: 1.5;
-    width: 450px;
-    font-size: 16px;
-    padding-right: 5rem;
-}
-
-.openPopup {
-    background: none;
-    border: none;
-    text-decoration: none;
-    text-align: start;
-    color: #000;
-
-}
-
-.openPopup a {
-    text-decoration: none;
-    
-    
-}
-
-.close-popup {
-    padding: 10px;
-    text-decoration: none;
-    color: #274685;
-}
-
-.close-popup:hover {
-    cursor: pointer;
 }
 
 /** Navegación */
