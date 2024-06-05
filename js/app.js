@@ -21,7 +21,6 @@ let currentFilter = 'all';
 
 
 /** Paginacion */
-
 /* Elementos Dinamicos */
 const data = [
   { title: 'Musico', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-2.jpg', category: 'Avisos' },
@@ -35,13 +34,10 @@ const data = [
   { title: 'Comunicados 4', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-8.jpg', category: 'Comunicados' },
   { title: 'Convenios', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-11.jpg', category: 'Eventos' },
   { title: 'Convenios3', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-14.jpg', category: 'Eventos' },
+  { title: 'Convenios4', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-13.png', category: 'Eventos' },
   { title: 'Comunicados 5', text: 'Lorem ipsum dolor sit amet consectetur elit.', img: '/img/portfolio-6.jpg', category: 'Comunicados' }
 ];
 
-const openPopup = document.querySelector('.openPopup');
-openPopup.addEventListener('click', () => {
-  alert('Popup!');
-});
 
 const itemsPorPagina = 4;
 let currentPage = 1;
@@ -56,11 +52,8 @@ function renderNews(page) {
   const endIndex = startIndex + itemsPorPagina;
   const newsToDisplay = filteredData.slice(startIndex, endIndex);
 
-
   const newsContainer = document.getElementById("news-container");
-  newsContainer.classList.add("fade-leave-active");
-
-  newsContainer.innerHTML = ""; 
+  newsContainer.innerHTML = "";
 
   newsToDisplay.forEach(news => {
     const newsHTML = `
@@ -84,9 +77,6 @@ function renderNews(page) {
   });
 
   renderPagination(filteredData.length);
-
-
-
 }
 
 
@@ -125,6 +115,7 @@ function changePage(page) {
   if (page >= 1 && page <= pageCount) {
     currentPage = page;
     renderNews(currentPage);
+
   }
 }
 
@@ -162,4 +153,20 @@ function renderCarousel() {
     carouselContainer.innerHTML += carouselHTML;
   });
 }
+
+
+const openPopup = document.querySelector('.openPopup');
+const popup = document.querySelector('.popup')
+const closePopup = document.querySelector('.close-popup');
+openPopup.addEventListener('click', (e) => {
+  e.preventDefault();
+  popup.classList.add('popup--show');
+});
+
+closePopup.addEventListener('click', (e) => {
+  e.preventDefault();
+  popup.classList.remove('popup--show');
+});
+
+
 
