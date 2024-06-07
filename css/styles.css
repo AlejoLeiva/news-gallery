@@ -177,4 +177,16 @@ body {
     color: #ccc;
 }
 
+/** Modal */
+.videoModal {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+}
+
+.modal-title {
+    display: flex;
+    text-transform: uppercase;
+}
+
 
